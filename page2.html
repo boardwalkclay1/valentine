@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>You Said Yes! 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="center">
+    <h1 class="title">You said YES! 💘</h1>
+    <p class="subtitle">My heart is doing backflips right now.</p>
+
+    <button class="nextBtn" onclick="location.href='page3.html'">
+      Continue 💞
+    </button>
+  </div>
+
+  <script>
+    // Heart burst on load
+    for (let i = 0; i < 40; i++) {
+      const h = document.createElement("div");
+      h.classList.add("heart");
+      h.innerText = "💖";
+      h.style.left = Math.random() * window.innerWidth + "px";
+      h.style.top = Math.random() * window.innerHeight + "px";
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 2000);
+    }
+  </script>
+
+</body>
+</html>
