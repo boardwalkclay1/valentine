@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Message For You 💞</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ff9ecb, #ff4f81);
+      font-family: "Poppins", sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .center {
+      margin-top: 12vh;
+      padding: 20px;
+    }
+
+    .title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      text-shadow: 0 0 10px white;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      margin-bottom: 30px;
+      padding: 0 20px;
+    }
+
+    .teddy {
+      font-size: 6rem;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0); }
+    }
+
+    .nextBtn {
+      padding: 15px 30px;
+      font-size: 1.3rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: white;
+      color: #ff4f81;
+      font-weight: bold;
+      box-shadow: 0 0 10px white;
+      transition: 0.2s;
+    }
+
+    .nextBtn:hover {
+      transform: scale(1.05);
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatHearts 3s linear forwards;
+      opacity: 0.8;
+    }
+
+    @keyframes floatHearts {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-200px) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="center">
+    <div class="teddy">🧸</div>
+
+    <h1 class="title">A Special Message For You 💞</h1>
+
+    <p class="subtitle">
+      I’m really glad you’re in my world.  
+      You deserve softness, joy, and someone who chooses you every time.  
+      Today, that someone is me.
+    </p>
+
+    <button class="nextBtn" onclick="location.href='finale.html'">
+      Final Surprise 🎁
+    </button>
+  </div>
+
+  <script>
+    // Floating hearts background
+    function createHeart() {
+      const h = document.createElement("div");
+      h.classList.add("heart");
+      h.innerText = "💖";
+      h.style.left = Math.random() * window.innerWidth + "px";
+      h.style.top = window.innerHeight + "px";
+      h.style.fontSize = (Math.random() * 25 + 20) + "px";
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 3000);
+    }
+    setInterval(createHeart, 400);
+  </script>
+
+</body>
+</html>
