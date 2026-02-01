@@ -4,6 +4,83 @@
   <meta charset="UTF-8">
   <title>Be My Valentine ❤️</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ff9ecb, #ff4f81);
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px white;
+    }
+
+    .teddy {
+      font-size: 4rem;
+      margin: 10px 0;
+    }
+
+    .roses {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      margin-top: 10px;
+    }
+
+    .buttons button, .buttons a {
+      padding: 15px 30px;
+      font-size: 1.3rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.2s;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    #yesBtn {
+      background: #ff1744;
+      color: white;
+      box-shadow: 0 0 10px #ff1744;
+    }
+
+    #noBtn {
+      background: #444;
+      color: white;
+      position: absolute;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatHearts 3s linear forwards;
+      z-index: 1;
+    }
+
+    @keyframes floatHearts {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-200px) scale(1.5); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
 
@@ -14,11 +91,36 @@
     <div class="roses">🌹🌹🌹</div>
 
     <div class="buttons">
-      <button id="yesBtn">Yes 💘</button>
+      <!-- Yes is a direct link to page2.html -->
+      <a id="yesBtn" href="page2.html">Yes 💘</a>
       <button id="noBtn">No 😢</button>
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script>
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.top = window.innerHeight + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 3000);
+    }
+    setInterval(createHeart, 400);
+
+    // No button dodges cursor
+    const noBtn = document.getElementById("noBtn");
+    function moveNoBtn() {
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 60);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+    moveNoBtn(); // initial position
+    noBtn.addEventListener("mouseover", moveNoBtn);
+  </script>
+
 </body>
 </html>
