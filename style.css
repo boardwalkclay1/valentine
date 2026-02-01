@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #ff9ecb, #ff4f81);
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  color: white;
+  animation: fadeIn 1.5s ease;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px white;
+}
+
+.teddy {
+  font-size: 4rem;
+  margin: 10px 0;
+}
+
+.roses {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.buttons button {
+  padding: 15px 30px;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.2s;
+}
+
+#yesBtn {
+  background: #ff1744;
+  color: white;
+  box-shadow: 0 0 10px #ff1744;
+}
+
+#noBtn {
+  background: #444;
+  color: white;
+  position: absolute;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-150px) scale(1.5); opacity: 0; }
+}
+
+.heart {
+  position: absolute;
+  font-size: 2rem;
+  animation: floatHearts 2s linear forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
